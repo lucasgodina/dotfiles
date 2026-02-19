@@ -1,0 +1,34 @@
+// Startup: Servicios esenciales
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swww-daemon"
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+}
+
+layout {
+    gap 12
+    center-focused-column-window
+}
+
+binds {
+    // Terminal y Launcher
+    Mod+Return { spawn "alacritty"; }
+    Mod+Ctrl+Return { spawn "fuzzel"; }
+    
+    // Acciones
+    Mod+Q { close-window; }
+    Mod+Shift+E { quit; }
+
+    // Scroll de columnas (Core de Niri)
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    
+    // Redimensionar
+    Mod+Shift+Left { set-column-width "-10%"; }
+    Mod+Shift+Right { set-column-width "+10%"; }
+}
